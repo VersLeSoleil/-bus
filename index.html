@@ -37,7 +37,8 @@
             enableHighAccuracy: true, // 是否使用高精度定位
             timeout: 10000, // 超时时间
             zoomToAccuracy: true, // 定位成功后缩放地图显示定位范围
-            position: 'RB' // 定位按钮的位置（右下角）
+            offset: [10, 20],
+            position: 'RB' // 定位按钮的位置
         });
         
         map.addControl(geolocation);
