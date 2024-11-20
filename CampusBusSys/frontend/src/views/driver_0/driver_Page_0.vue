@@ -1,5 +1,5 @@
 <script setup>
-import MapComponent from '@/views/components/MapComponent.vue';
+import MapComponent from '@/views/driver_0/components/MapComponent.vue';
 </script>
 
 <template>
@@ -9,9 +9,7 @@ import MapComponent from '@/views/components/MapComponent.vue';
       <span>中山大学 (1号车)</span>
     </div>
     <div class="main-container">
-      <div class="map-section">
-        <MapComponent />
-      </div>    
+      <MapComponent />    
     </div>
   </div>
 </template>

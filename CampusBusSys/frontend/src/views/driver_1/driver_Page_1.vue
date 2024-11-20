@@ -1,6 +1,6 @@
 <script setup>
 
-import MapComponent from '@/views/components/MapComponent.vue';
+import MapComponent from '@/views/driver_1/components/MapComponent.vue';
 import SafetyAlertButton from '@/views/driver_1/components/SafetyAlertButton.vue';
 import SelfScanButton from '@/views/driver_1/components/SelfScanButton.vue';
 import PaymentCount from '@/views/driver_1/components/PaymentCount.vue';

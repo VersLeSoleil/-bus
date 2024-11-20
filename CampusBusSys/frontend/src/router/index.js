@@ -22,8 +22,8 @@ const routes = [
         component: HomePage,
     },
     {
-        path: '/driver',
-        name: 'Driver',
+        path: '/driver-0',
+        name: 'Driver-0',
         component: Driver_Page_0,
     },
     {

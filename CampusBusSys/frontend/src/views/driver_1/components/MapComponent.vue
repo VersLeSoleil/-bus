@@ -1,12 +1,9 @@
 <template>
   <div class="page-container">
-    <div id="container" class="map-container">
-      <div class="info-container">
-        <button @click="showDriverInfo" class="showDriverInfoButton">我的</button>
-        <button @click="showMoreInfo" class="showMoreInfoButton">更多</button>
-        <driver_Info :visible="dInfoVisible" :content="dInfoContent" @close="closeDInfo" />
-      </div>
-    </div>
+    <button @click="showDriverInfo" class="showDriverInfoButton">我的</button>
+    <button @click="showMoreInfo" class="showMoreInfoButton">更多</button>
+    <driver_Info :visible="dInfoVisible" :content="dInfoContent" @close="closeDInfo" />
+    <div id="container" class="map-container"></div>
   </div>
   <div id="app">
     <div id="container"></div>
@@ -21,14 +18,14 @@
       </div>
       <!-- 地图容器 -->
       <div id="map-container">
-          <div class="input-card" style="width: 200px">
+        <div class="input-card" style="width: 200px">
       <!-- 按钮和交互内容 -->
-      <button class="btn" @click="toggleRoutes" style="margin-bottom: 5px">
-        {{ routesVisible ? '隐藏现有路线' : '显示现有路线' }}
-      </button>
-      <button class="btn" @click="toggleStations" style="margin-bottom: 5px">
-        {{ stationsVisible ? '隐藏站点' : '显示站点' }}
-      </button>
+        <button class="btn" @click="toggleRoutes" style="margin-bottom: 5px">
+          {{ routesVisible ? '隐藏现有路线' : '显示现有路线' }}
+        </button>
+        <button class="btn" @click="toggleStations" style="margin-bottom: 5px">
+          {{ stationsVisible ? '隐藏站点' : '显示站点' }}
+        </button>
 
       <div v-if="editingNewRoute" style="margin-left: 10px">
         <button class="btn" @click="endEditing(false)" style="margin-bottom: 5px">结束(不保存)</button>
@@ -48,9 +45,7 @@
       @add-polyline="addPolyline"
       @remove-polyline="removePolyline"
     />
-
     <!-- 输入功能卡片 -->
-    
   </div>
   <div>
     <h1>车辆信息管理</h1>

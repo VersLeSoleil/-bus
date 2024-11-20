@@ -2,7 +2,6 @@
     <div>
       <!-- 按钮 -->
       <button @click="openForm" class="form-button">处理工作班次</button>
-  
       <!-- 信息填写窗口 -->
       <div v-if="showForm" class="form-modal">
         <div class="form-content">
@@ -26,7 +25,7 @@
             </div>
             
             <div class="form-actions">
-              <button type="submit" class="submit-button">提交</button>
+              <button type="submit"  @click="todiver_page_1" class="submit-button">提交</button>
               <button type="button" @click="closeForm" class="cancel-button">取消</button>
             </div>
           </form>
@@ -36,6 +35,7 @@
   </template>
   
   <script>
+  import router from '@/router';
   export default {
     data() {
       return {
@@ -65,6 +65,10 @@
           plate: "",
           vehicle_status: "",
         };
+      },
+
+      todiver_page_1(){
+        router.push('/driver-1');
       },
       // 提交表单
       async submitForm() {

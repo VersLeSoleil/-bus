@@ -2,7 +2,7 @@
 import router from '@/router';
 
     function todriver(){
-        router.push('/driver');
+        router.push('/driver-0');
     }
 
 </script>
