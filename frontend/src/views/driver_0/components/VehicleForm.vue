@@ -25,7 +25,7 @@
             </div>
             
             <div class="form-actions">
-              <button type="submit"  @click="todiver_page_1" class="submit-button">提交</button>
+              <button type="submit"  @click="driverInfoSubmmit" class="submit-button">提交</button>
               <button type="button" @click="closeForm" class="cancel-button">取消</button>
             </div>
           </form>

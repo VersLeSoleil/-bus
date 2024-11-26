@@ -22,7 +22,7 @@
           <button class="btn autoLocateButton" @click="autoLocateCampus">
             自动定位到校区
           </button>
-          <VehicleForm />
+          <StartWork />
         </div>
       </transition>
     </div>
@@ -31,15 +31,15 @@
   <script>
   import AMapLoader from "@amap/amap-jsapi-loader";
   import busStationData from "@/assets/bus_station_data.json";
-  import VehicleForm from "@/views/driver_0/components/VehicleForm.vue";
   import driver_Info from '@/views/driver_0/driver_Info.vue';
+  import StartWork from "./StartWork.vue";
   
   /* global AMap */
   
   export default {
     name: "MapComponent",
     components: {
-      VehicleForm,
+      StartWork,
       driver_Info,
       // ref,
     },
@@ -283,7 +283,7 @@
       // 获取驾驶员数据
       async fetchDrivers() {
         try {
-          const response = await fetch("http://localhost:8080/drivers");
+          const response = await fetch("http://localhost:8888/drivers");
           if (!response.ok) {
             throw new Error("网络请求失败");
           }

@@ -27,7 +27,7 @@ export default {
             }
 
             // 发送post请求
-            axios.post("http://localhost:8080/api/login", {
+            axios.post("http://localhost:8888/api/login", {
                 username: this.username,
                 password: this.password,
             },
