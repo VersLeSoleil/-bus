@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>AMap Geolocation</title>
+    <style>
+        html, body, #container {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+    </style>
+    <script src="https://webapi.amap.com/loader.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    var map;
+    AMapLoader.load({
+        key: '9e0dfefc829e69af5324533400185185',
+        version: '2.0',
+        plugins: ['AMap.Scale', 'AMap.ToolBar', 'AMap.Geolocation']
+    }).then((AMap) => {
+        map = new AMap.Map('container', {
+            resizeEnable: true,
+            zoom: 15 // 默认地图缩放级别
+        });
+        
+        // 添加工具条和比例尺
+        map.addControl(new AMap.ToolBar());
+        map.addControl(new AMap.Scale());
+        
+        // 添加地理定位控件
+        var geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true, // 是否使用高精度定位
+            timeout: 10000, // 超时时间
+            zoomToAccuracy: true, // 定位成功后缩放地图显示定位范围
+            offset: [10, 20],
+            position: 'RB' // 定位按钮的位置
+        });
+        
+        map.addControl(geolocation);
+
+        // 获取当前位置信息
+        geolocation.getCurrentPosition(function (status, result) {
+            if (status === 'complete') {
+                onComplete(result); // 定位成功
+            } else {
+                onError(result); // 定位失败
+            }
+        });
+
+        // 处理定位成功结果
+        function onComplete(data) {
+            var latitude = data.position.lat;
+            var longitude = data.position.lng;
+            console.log("当前位置：", latitude, longitude);
+
+            // 地图中心设置为当前位置，并添加标记
+            map.setCenter([longitude, latitude]);
+            new AMap.Marker({
+                position: [longitude, latitude],
+                map: map
+            });
+        }
+
+        // 处理定位失败情况
+        function onError(data) {
+            console.error("定位失败：", data.message);
+            alert("无法获取定位，请检查手机定位设置");
+        }
+    }).catch((e) => {
+        console.error(e);
+    });
+</script>
+</body>
+</html>
